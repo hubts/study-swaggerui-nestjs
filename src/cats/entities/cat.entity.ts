@@ -19,7 +19,7 @@ export class Cat {
   @IsString()
   @ApiProperty({
     example: `페르시안`,
-    description: `breed가 뭐종? 고양이종 ㅋㅋ`,
+    description: `breed가 뭐종? 바로바로 고양이종 ㅋㅋ`,
   })
   breed: string;
 }
