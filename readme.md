@@ -6,7 +6,7 @@
 
 [Swagger](https://swagger.io/)는 REST API의 이해도를 높여주는 Open Api Specification (OAS) 프레임워크입니다. Swagger에서 제공하는 간단한 코드들을 구현된 기존 API 서버에 추가하기만 하면 됩니다. 그러면 생성되는 API 문서 페이지를 통해 구현된 REST API의 명세를 일목요연하게 살펴볼 수 있습니다. 또한, Swagger는 오픈소스 프로젝트이므로 무료로 이용할 수 있다는 큰 장점이 있습니다.
 
-__결론적으로, Swagger는 API 서버에 개발된 프로젝트에 대한 API 명세를 자동 생성해줍니다. __
+__결론적으로, Swagger는 API 서버에 개발된 프로젝트에 대한 API 명세를 자동 생성해줍니다.__
 
 __우리는 별도로 각 API의 명세를 정리하기 위해 문서화 작업을 수행하거나 API를 수정할 때마다 문서를 수정할 필요가 없습니다.__
 
@@ -66,7 +66,7 @@ npm run start:dev # start --watch (dev)
 - `controller` 는 구현된 API 함수들에 대하여 앞선 명세들을 적용합니다.
 - `main` 은 Swagger 인스턴스를 붙이고, 앞선 `dto` 및 `entity` 에 대해 데이터 선별을 수행하는 Pipe를 설정합니다.
 
-이제부터 해당 파일들을 기준으로 코드들에 추가되는 Swagger 및 Validator가 제공하는 함수 및 데코레이터(Decorator)를 살펴봅니다.
+이제 해당 파일들을 기준으로 코드들에 추가되는 Swagger 및 Validator가 제공하는 함수 및 데코레이터(Decorator)를 살펴봅니다.
 
 ### main.ts
 
@@ -79,7 +79,7 @@ app.useGlobalPipes(new ValidationPipe({
 }));
 ~~~
 
-먼저 NestJS 어플리케이션에 대한 요청을 선별하는 Pipe가 필요합니다. 이 `ValidationPipe` 에 의하여 요청 데이터가 약속된 폼을 가지지 않는 경우 모두 반려됩니다.
+먼저 NestJS 어플리케이션에 대한 요청을 선별하는 Pipe가 필요합니다. 이 `ValidationPipe` 에 의하여 요청 데이터가 약속된 폼을 가지지 않는 경우 모두 거절됩니다.
 
 ~~~typescript
 const options = new DocumentBuilder()
@@ -92,7 +92,7 @@ const document = SwaggerModule.createDocument(app, options);
 SwaggerModule.setup(`api`, app, document);
 ~~~
 
-위 코드는 Swagger에서 import하여 작성된 코드입니다. 다음과 같은 옵션들이 동반되었습니다.
+위 코드는 Swagger에서 import하여 작성된 코드입니다. 다음과 같은 옵션들이 포함되었습니다.
 
 - `setTitle` : API 타이틀 (웹 사이트 타이틀)
 - `setDescription` : 타이틀 하단의 설명
