@@ -33,9 +33,9 @@ let CatsController = class CatsController {
 };
 __decorate([
     common_1.Post(),
-    swagger_1.ApiOperation({ summary: '새로운 고양이를 들여오자!' }),
-    swagger_1.ApiResponse({ status: 201, description: '새롭게 Cat 입양!', type: cat_entity_1.Cat }),
-    swagger_1.ApiResponse({ status: 400, description: 'Error: Bad Request', type: create_cat_error_dto_1.CreateCatErrorDto }),
+    swagger_1.ApiOperation({ summary: "새로운 고양이를 들여오자!" }),
+    swagger_1.ApiResponse({ status: 201, description: "새롭게 Cat 입양!", type: cat_entity_1.Cat }),
+    swagger_1.ApiResponse({ status: 400, description: "Error: Bad Request", type: create_cat_error_dto_1.CreateCatErrorDto }),
     openapi.ApiResponse({ status: 201, type: require("./entities/cat.entity").Cat }),
     __param(0, common_1.Body()),
     __metadata("design:type", Function),
@@ -43,29 +43,34 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], CatsController.prototype, "create", null);
 __decorate([
-    common_1.Get(':id'),
-    swagger_1.ApiOperation({ summary: '고양이를 찾아보자!' }),
+    common_1.Get(":id"),
+    swagger_1.ApiOperation({ summary: "고양이를 찾아보자!" }),
     swagger_1.ApiResponse({
         status: 200,
-        description: '원하는 고양이를 찾았다!',
+        description: "원하는 고양이를 찾았다!",
         type: cat_entity_1.Cat,
     }),
     swagger_1.ApiParam({
-        name: 'id',
-        description: '원하는 고양이를 찾을 번호 (입양 후 조회할 것)',
-        type: "string",
+        name: "id",
+        description: "원하는 고양이를 찾을 번호 (입양 후 조회할 것)",
+        schema: {
+            oneOf: [
+                { type: "string" },
+                { type: "number" }
+            ]
+        },
         example: 1
     }),
     openapi.ApiResponse({ status: 200, type: require("./entities/cat.entity").Cat }),
-    __param(0, common_1.Param('id')),
+    __param(0, common_1.Param("id")),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
+    __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", cat_entity_1.Cat)
 ], CatsController.prototype, "findOne", null);
 CatsController = __decorate([
     swagger_1.ApiBearerAuth(),
-    swagger_1.ApiTags('고양이 API'),
-    common_1.Controller('cats'),
+    swagger_1.ApiTags("고양이 API"),
+    common_1.Controller("cats"),
     __metadata("design:paramtypes", [cats_service_1.CatsService])
 ], CatsController);
 exports.CatsController = CatsController;

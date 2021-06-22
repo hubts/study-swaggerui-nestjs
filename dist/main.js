@@ -12,13 +12,13 @@ async function bootstrap() {
         transform: true
     }));
     const options = new swagger_1.DocumentBuilder()
-        .setTitle('사랑스러운 고양이 API Swagger')
+        .setTitle(`사랑스러운 고양이 API Swagger`)
         .setDescription(`귀여운 고양이 데이터를 테크니컬하게 다룰 수 있는 API`)
-        .setVersion('1.0')
+        .setVersion(`1.0`)
         .addBearerAuth()
         .build();
     const document = swagger_1.SwaggerModule.createDocument(app, options);
-    swagger_1.SwaggerModule.setup('api', app, document);
+    swagger_1.SwaggerModule.setup(`api`, app, document);
     await app.listen(3000);
     const logger = new common_1.Logger(bootstrap.name);
     const url = await app.getUrl();

@@ -38,7 +38,7 @@ __decorate([
     class_validator_1.IsString(),
     swagger_1.ApiProperty({
         example: `페르시안`,
-        description: `breed가 뭐종? 고양이종 ㅋㅋ`,
+        description: `breed가 뭐종? 바로바로 고양이종 ㅋㅋ`,
     }),
     __metadata("design:type", String)
 ], Cat.prototype, "breed", void 0);
